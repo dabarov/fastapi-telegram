@@ -1,11 +1,11 @@
 import asyncio
-import os
 from logging.config import fileConfig
 
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 from sqlalchemy.ext.asyncio import AsyncEngine
 
+from app.core.config import settings
 from app.models import Base
 
 # this is the Alembic Config object, which provides
@@ -29,15 +29,6 @@ target_metadata = Base.metadata
 # ... etc.
 
 
-def get_url():
-    user = os.getenv("POSTGRES_USER", "postgres")
-    password = os.getenv("POSTGRES_PASSWORD", "postgres")
-    server = os.getenv("POSTGRES_SERVER", "localhost")
-    port = os.getenv("POSTGRES_PORT", "5433")
-    db = os.getenv("POSTGRES_DB", "postgres")
-    return f"postgresql+asyncpg://{user}:{password}@{server}:{port}/{db}"
-
-
 def run_migrations_offline() -> None:
     """Run migrations in 'offline' mode.
 
@@ -49,7 +40,7 @@ def run_migrations_offline() -> None:
     Calls to context.execute() here emit the given string to the
     script output.
     """
-    url = get_url()
+    url = str(settings.SQLALCHEMY_DATABASE_URI)
     context.configure(
         url=url,
         target_metadata=target_metadata,
@@ -69,7 +60,7 @@ async def run_migrations_online() -> None:
 
     """
     configuration = config.get_section(config.config_ini_section)
-    configuration["sqlalchemy.url"] = get_url()
+    configuration["sqlalchemy.url"] = str(settings.SQLALCHEMY_DATABASE_URI)
     connectable = AsyncEngine(
         engine_from_config(
             configuration,
