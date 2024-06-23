@@ -21,12 +21,12 @@ class Settings(BaseSettings):
     POSTGRES_PASSWORD: str
     POSTGRES_DB: str
 
-    @computed_field
+    @computed_field  # type: ignore
     @property
     def bot_token_hash_bytes(self) -> bytes:
         return hashlib.sha256(self.BOT_TOKEN.encode()).digest()
 
-    @computed_field
+    @computed_field  # type: ignore
     @property
     def SQLALCHEMY_DATABASE_URI(self) -> PostgresDsn:
         return MultiHostUrl.build(
@@ -39,4 +39,4 @@ class Settings(BaseSettings):
         )
 
 
-settings = Settings()
+settings = Settings()  # type: ignore

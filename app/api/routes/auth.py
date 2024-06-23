@@ -55,7 +55,7 @@ async def telegram_callback(
 
 
 @router.get("/logout")
-async def logout():
+async def logout() -> RedirectResponse:
     response = RedirectResponse("/")
     response.delete_cookie(key=settings.AUTH_COOKIE_NAME)
     return response

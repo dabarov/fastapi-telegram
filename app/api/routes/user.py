@@ -19,5 +19,5 @@ async def send_message_to_current_user(
     message_request: TelegramMessageRequest,
     current_user: CurrentUserDep,
     telegram_bot: TelegramBotDep,
-):
+) -> None:
     await telegram_bot.send_message(current_user.user_id, message_request.message)
