@@ -11,3 +11,9 @@ class UserTelegramData(BaseModel):
     username: str
     photo_url: str
     auth_date: datetime
+
+
+class TelegramMessageRequest(BaseModel):
+    """Model for sending telegram message to current user"""
+
+    message: str

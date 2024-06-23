@@ -1,6 +1,7 @@
 from typing import Annotated
 
 import jwt
+from aiogram import Bot
 from fastapi import Depends, HTTPException, Request
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
@@ -37,3 +38,11 @@ async def get_current_user(request: Request, session: SessionDep):
 
 
 CurrentUserDep = Annotated[User, Depends(get_current_user)]
+
+
+async def get_telegram_bot():
+    async with Bot(token=settings.BOT_TOKEN) as bot:
+        yield bot
+
+
+TelegramBotDep = Annotated[Bot, Depends(get_telegram_bot)]
