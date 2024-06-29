@@ -50,10 +50,9 @@ For direct installation and usage:
 
 Alternatively, you can run the application in a Dockerized environment with the following command:
 
-    
-    ```sh
-    docker-compose -f compose.dev.yml up
-    ```
+```sh
+docker-compose -f compose.dev.yml up
+```    
 
 ## Usage
 
