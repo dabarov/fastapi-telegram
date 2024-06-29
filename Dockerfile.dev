@@ -12,4 +12,6 @@ COPY ./ruff.toml /app/ruff.toml
 
 COPY ./app /app/app
 
+RUN alembic upgrade head
+
 CMD ["fastapi", "run", "app/main.py", "--port", "8000", "--reload"]
