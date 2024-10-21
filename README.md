@@ -2,7 +2,7 @@
 
 ![Python](https://img.shields.io/badge/python-3.12-blue?logo=python&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/postgresql-blue?logo=postgresql&logoColor=white)
-![FastAPI](https://img.shields.io/badge/fastapi-0.103.1-green?logo=fastapi&logoColor=white)
+![FastAPI](https://img.shields.io/badge/fastapi-0.111.0-green?logo=fastapi&logoColor=white)
 ![Telegram](https://img.shields.io/badge/telegram-blue?logo=telegram&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-blue?logo=docker&logoColor=white)
 ![Ruff](https://img.shields.io/badge/ruff-linting-orange?logo=ruff&logoColor=white)
