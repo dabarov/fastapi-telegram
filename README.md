@@ -25,7 +25,7 @@ You can start by either:
 
     <img src="https://docs.github.com/assets/cb-76823/mw-1440/images/help/repository/use-this-template-button.webp" alt="Use this template" width="400">
 
-OR 
+OR
 
 - Directly cloning this repository:
 
@@ -60,7 +60,7 @@ Alternatively, you can run the application in a Dockerized environment with the 
 
 ```sh
 docker-compose -f compose.dev.yml up
-```    
+```
 
 ## Usage
 
@@ -73,7 +73,7 @@ docker-compose -f compose.dev.yml up
 
 The routes are available in the `app/api/routes` directory.
 
-There are two endpoints for authentication (`app/api/routes/auth.py`):  
+There are two endpoints for authentication (`app/api/routes/auth.py`):
 - `GET /api/v1/auth/telegram/callback` handles the callback from the Telegram Login Widget.
 - `GET /api/v1/auth/logout` removes authentication for the user.
 
@@ -88,4 +88,3 @@ The dependencies are available in `app/api/deps.py`:
 - `SessionDep` for the database session.
 - `CurrentUserDep` for current user data from the database.
 - `TelegramBotDep` provides the Telegram bot object of type `Bot` for sending messages, etc.
-  
